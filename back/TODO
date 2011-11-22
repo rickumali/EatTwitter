@@ -1,0 +1,4 @@
+2011
+Figure out where error_log() writes to in PHP CLI. 11-21 DONE 11-21
+Externalize the username/password in get_tweets. 11-21 DONE 11-21
+Figure out how to externalize the follow list. 11-21

@@ -1,0 +1,3 @@
+This is the Eat Twitter website software. There are two main 
+areas: front-end (front) and back-end (back). This website relies on
+Phirehose (https://github.com/fennb/phirehose/).
