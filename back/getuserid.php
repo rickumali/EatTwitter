@@ -32,4 +32,10 @@ if (is_array($data)) {
     $id_list[] = $user->{'id'};
   }
 }
-print implode(',',$id_list);
+# NOTE: Use the print() below to produce a comma-separated list
+# print implode(',',$id_list);
+
+# NOTE: Use the foreach() below to produce a list of IDs, one PER LINE
+foreach ($id_list as $id) {
+  print "$id\n";
+}
