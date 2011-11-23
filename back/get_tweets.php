@@ -12,15 +12,20 @@ class GetEatTwitterTweets extends Phirehose
    */
   public function enqueueStatus($status)
   {
-    file_put_contents(time() . ".json", $status);
+    $folder = date('Y-m-d');
     $data = json_decode($status, true);
-    if (is_array($data) && isset($data['user']['screen_name'])) {
-      print $data['user']['screen_name'] . ': ';
-      print urldecode($data['text']) . "\n";
+    if (is_array($data) && isset($data['id_str'])) {
+      if (!is_dir($folder)) {
+        mkdir($folder);
+      }
+      file_put_contents($folder . "/" . $data['id_str'] . ".json", $status);
     }
   }
 }
 
-$gt = new GetEatTwitterTweets(USERNAME, PASSWORD, Phirehose::METHOD_FILTER);
-$gt->setFollow(array(28164096,17444573,148496087,20661539,14880616,17008726,20778387));
+# NOTE: The two lines below are the ORIGINAL CODE:
+# $gt = new GetEatTwitterTweets(USERNAME, PASSWORD, Phirehose::METHOD_FILTER);
+# $gt->setFollow(array(28164096,17444573,148496087,20661539,14880616,17008726,20778387));
+
+$gt = new GetEatTwitterTweets(USERNAME, PASSWORD, Phirehose::METHOD_SAMPLE);
 $gt->consume();
