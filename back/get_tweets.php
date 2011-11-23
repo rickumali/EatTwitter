@@ -21,11 +21,29 @@ class GetEatTwitterTweets extends Phirehose
       file_put_contents($folder . "/" . $data['id_str'] . ".json", $status);
     }
   }
+
+  /**
+   * Enqueue filter predicates
+   *
+   */
+  public function checkFilterPredicates()
+  {
+    if (is_file("follow.list")) {
+      $lines = file("follow.list");
+      foreach ($lines as $line_num => $line) {
+        if (substr($line, 0, 1) != "#") {
+          $line = chop($line);
+          # Any characters after the space are ignored
+          $id = strtok($line, " "); 
+          $follow_list[] = $id;
+        }
+      }
+      $this->setFollow($follow_list);
+    }
+  }
+
 }
 
 # NOTE: The two lines below are the ORIGINAL CODE:
-# $gt = new GetEatTwitterTweets(USERNAME, PASSWORD, Phirehose::METHOD_FILTER);
-# $gt->setFollow(array(28164096,17444573,148496087,20661539,14880616,17008726,20778387));
-
-$gt = new GetEatTwitterTweets(USERNAME, PASSWORD, Phirehose::METHOD_SAMPLE);
+$gt = new GetEatTwitterTweets(USERNAME, PASSWORD, Phirehose::METHOD_FILTER);
 $gt->consume();

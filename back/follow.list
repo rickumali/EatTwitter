@@ -1,0 +1,13 @@
+# This follow.list lists the Twitter IDs of the users 
+# that we will follow. The Twitter IDs can be obtained 
+# from the program getuserid.php. This file is read by
+# get_tweets.php. NOTE: The reading program will 
+# read UP TO THE FIRST SPACE, so you can comment this 
+# by leaving a SPACE and the name.
+28164096 => rachael ray  (rachael_ray)
+17444573 => Emeril Lagasse (Emeril)
+148496087 => Mario Batali (Mariobatali)
+20661539 => Giada De Laurentiis (GDeLaurentiis)
+14880616 => Paula Deen (Paula_Deen)
+17008726 => Andrew Zimmern (andrewzimmern)
+20778387 => Mark Bittman (bittman)
