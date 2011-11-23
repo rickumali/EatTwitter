@@ -2,8 +2,9 @@
 # that we will follow. The Twitter IDs can be obtained 
 # from the program getuserid.php. This file is read by
 # get_tweets.php. NOTE: The reading program will 
-# read UP TO THE FIRST SPACE, so you can comment this 
-# by leaving a SPACE and the name.
+# read UP TO THE FIRST SPACE, so you can comment each
+# line by leaving a SPACE after the ID. (You can also
+# just leave an ID on a line.)
 28164096 => rachael ray  (rachael_ray)
 17444573 => Emeril Lagasse (Emeril)
 148496087 => Mario Batali (Mariobatali)
