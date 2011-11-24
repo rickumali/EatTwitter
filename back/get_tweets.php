@@ -20,7 +20,27 @@ class Consumer extends Phirehose
     require_once('./db_lib.php');
     $this->oDB = new db;
   }
-	
+
+  /**
+   * Enqueue filter predicates
+   *
+   */
+  public function checkFilterPredicates()
+  {
+    if (is_file("follow.list")) {
+      $lines = file("follow.list");
+      foreach ($lines as $line_num => $line) {
+        if (substr($line, 0, 1) != "#") {
+          $line = chop($line);
+          # Any characters after the space are ignored
+          $id = strtok($line, " "); 
+          $follow_list[] = $id;
+        }
+      }
+      $this->setFollow($follow_list);
+    }
+  }
+
   // This function is called automatically by the Phirehose class
   // when a new tweet is received with the JSON data in $status
   public function enqueueStatus($status) {
@@ -43,11 +63,6 @@ $stream = new Consumer(STREAM_ACCOUNT, STREAM_PASSWORD, Phirehose::METHOD_FILTER
 
 // Establish a MySQL database connection
 $stream->db_connect();
-
-// The keywords for tweet collection are entered here as an array
-// More keywords can be added as array elements
-// For example: array('recipe','food','cook','restaurant','great meal')
-$stream->setTrack(array('recipe'));
 
 // Start collecting tweets
 // Automatically call enqueueStatus($status) with each tweet's JSON data
