@@ -18,8 +18,10 @@ while (true) {
   $query = 'SELECT cache_id, raw_tweet ' .
     'FROM json_cache WHERE NOT parsed';
   $result = $oDB->select($query);
+  $total = mysqli_num_rows($result);
+  $count = 0;
   while($row = mysqli_fetch_assoc($result)) {
-		
+    $count++;		
     $cache_id = $row['cache_id'];
     // Each JSON payload for a tweet from the API was stored in the database  
     // by serializing it as text and saving it as base64 raw data
@@ -137,6 +139,7 @@ while (true) {
         $oDB->insert('tweet_urls',$field_values);
       }
     }		
+    print "Handled $tweet_id ($count out of $total)\n";
   } 
 		
   // You can adjust the sleep interval to handle the tweet flow and 
