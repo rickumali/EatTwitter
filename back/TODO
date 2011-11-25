@@ -1,5 +1,13 @@
 2011
 Figure out where error_log() writes to in PHP CLI. 11-21 DONE 11-21
 Externalize the username/password in get_tweets. 11-21 DONE 11-21
-Figure out how to externalize the follow list. 11-21
+Figure out how to externalize the follow list. 11-21 DONE 11-23
 On EC2, get a 64-bit machine (for MongoDB). 11-22 DONE 11-23
+Test 140dev front end code. 11-23
+Add code to parse_tweets.php to handle food vocabulary. 11-23
+Add some log() or print() diagnostics to parse_tweets. 11-23 DONE 11-24
+Test resetting all json_cache rows to parsed=0. 11-23 DONE 11-24
+Test exporting all json_cache rows. 11-23
+Test MySQL date operations. 11-23
+Start working EC2. Get a medium sized machine for now. 11-23
+Figure out multi-table delete syntax in SQL. 11-24
