@@ -49,6 +49,24 @@ CREATE TABLE IF NOT EXISTS `tweet_tags` (
   KEY `tag` (`tag`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- Introduced for Food tags (i.e. the vocabulary)
+-- This contains the food tags
+CREATE TABLE IF NOT EXISTS `food_tags` (
+  `food_tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'This is the id for the food tag (vocabulary)',
+  `tag` varchar(100) NOT NULL COMMENT 'This is the food tag itself.',
+  `level` int(1) NOT NULL COMMENT 'This is the \'level\' of the food tag. The lower the number, the more specific the tag is. In general, all tags will be level 1, BUT some tags will be level 2, to represent the \'groupings\' of the tags.',
+  PRIMARY KEY (`food_tag_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Introduced for Food tags (i.e. the vocabulary)
+-- This ties the food_tags to the tweets
+CREATE TABLE IF NOT EXISTS `tweets_food_tags` (
+  `tweet_id` bigint(20) unsigned NOT NULL COMMENT 'This points to the tweet.',
+  `food_tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'This points to the food tag.',
+  KEY (`tweet_id`),
+  KEY (`food_tag_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `tweet_urls` (
   `tweet_id` bigint(20) NOT NULL,
   `url` varchar(140) NOT NULL,
