@@ -13,3 +13,4 @@ Start working EC2. Get a medium sized machine for now. 11-23
 Figure out multi-table delete syntax in SQL. 11-24
 Add real log() methods to parse_tweets. 11-24
 Implement "junction table" for all tags. 11-25
+Implement code in parse_tweets to reread vocabulary file. 11-25
