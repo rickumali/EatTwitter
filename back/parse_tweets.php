@@ -144,6 +144,7 @@ while (true) {
 		
   // You can adjust the sleep interval to handle the tweet flow and 
   // server load you experience
+  print "Sleeping for a bit...";
   sleep(10);
 }
 
