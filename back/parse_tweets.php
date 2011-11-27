@@ -101,14 +101,24 @@ while (true) {
       // We have the cleaned up word ($tok) (aka token)
       // Check if the word exists in food_tags. If it does, add the tag
       // and the tweet to a row in the junction table.
-      $tag_result = $oDB->select('SELECT food_tag_id from food_tags where tag="' . $tok . '"');
+      $tag_result = $oDB->select('SELECT food_tag_id,parent_id from food_tags where tag="' . $tok . '"');
       $num_rows = mysqli_num_rows($tag_result);
       if ($num_rows == 1) { 
         $row = mysqli_fetch_assoc($tag_result);
         $food_tag_id = $row['food_tag_id'];
+        $parent_id = $row['parent_id'];
         $field_values = 'tweet_id = "' . $tweet_id . '", ' .
           'food_tag_id = "' . $food_tag_id . '"';
         $oDB->insert('tweets_food_tags',$field_values);
+
+        // TODO: Right now, this only handles one parent, which is FINE
+        // but to do more than two levels, I'll need to make this a while
+        // loop, until parent_id != 0
+        if ($parent_id != 0) {
+          $field_values = 'tweet_id = "' . $tweet_id . '", ' .
+            'food_tag_id = "' . $parent_id . '"';
+          $oDB->insert('tweets_food_tags',$field_values);
+        }
       }
 
       // Try to get another token
