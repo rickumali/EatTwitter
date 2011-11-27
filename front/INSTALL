@@ -1,0 +1,6 @@
+To install, make sure to soft link to:
+
+140dev_config.php
+db_config.php
+db_status.php
+db_lib.php
