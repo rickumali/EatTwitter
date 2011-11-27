@@ -1,0 +1,12 @@
+# This is the vocabulary list. This list is a colon-separted list. This
+# list contains the food vocabulary. The very first term is the most
+# specific tag. Every tag after the first (separated by a colon) is the
+# grouping. 
+turkey:protein
+eggs:dairy
+pie:dessert-sweet
+orange:fruit-vegetable
+waffle:grain-bread-pasta
+pear
+lettuce
+steak:protein
