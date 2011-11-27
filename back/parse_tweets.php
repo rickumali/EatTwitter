@@ -93,11 +93,11 @@ while (true) {
 
     // Add the food_tags, by examining every word ($tok) (aka token)
     // in the tweet_text
+    $tweet_text = iconv('UTF-8', 'ASCII//TRANSLIT', $tweet_text); # Remove all accents
+    $tweet_text = strtolower($tweet_text); # Lowercase tweet
+    $tweet_text = preg_replace("/[^a-z]/", " ", $tweet_text); # Replace all non-alphas with space
     $tok = strtok($tweet_text, " \n\t");
     while ($tok !== false) {
-      $tok = strtolower($tok); # Lowercase token
-      $tok = iconv('UTF-8', 'ASCII//TRANSLIT', $tok); # Remove all accents
-      $tok = preg_replace("/[^a-z]/", "", $tok); # Remove all non-alphas
       // We have the cleaned up word ($tok) (aka token)
       // Check if the word exists in food_tags. If it does, add the tag
       // and the tweet to a row in the junction table.

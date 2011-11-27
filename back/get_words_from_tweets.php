@@ -37,11 +37,11 @@ while($row = mysqli_fetch_assoc($result)) {
   // print "Handled $tweet_id ($count out of $total)\n";
   fwrite(STDERR, "Tweet $count (out of $total)\n");
 
+  $tweet_text = iconv('UTF-8', 'ASCII//TRANSLIT', $tweet_text); # Remove all accents
+  $tweet_text = strtolower($tweet_text); # Lowercase tweet
+  $tweet_text = preg_replace("/[^a-z]/", " ", $tweet_text); # Replace all non-alphas with space
   $tok = strtok($tweet_text, " \n\t");
   while ($tok !== false) {
-    $tok = strtolower($tok); # Lowercase token
-    $tok = iconv('UTF-8', 'ASCII//TRANSLIT', $tok); # Remove all accents
-    $tok = preg_replace("/[^a-z]/", "", $tok); # Remove all non-alphas
     print "$tok\n";
     $tok = strtok(" \n\t");
   }
