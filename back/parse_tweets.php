@@ -90,6 +90,30 @@ while (true) {
 			
       $oDB->insert('tweets',$field_values);
     }
+
+    // Add the food_tags, by examining every word ($tok) (aka token)
+    // in the tweet_text
+    $tok = strtok($tweet_text, " \n\t");
+    while ($tok !== false) {
+      $tok = strtolower($tok); # Lowercase token
+      $tok = iconv('UTF-8', 'ASCII//TRANSLIT', $tok); # Remove all accents
+      $tok = preg_replace("/[^a-z]/", "", $tok); # Remove all non-alphas
+      // We have the cleaned up word ($tok) (aka token)
+      // Check if the word exists in food_tags. If it does, add the tag
+      // and the tweet to a row in the junction table.
+      $tag_result = $oDB->select('SELECT food_tag_id from food_tags where tag="' . $tok . '"');
+      $num_rows = mysqli_num_rows($tag_result);
+      if ($num_rows == 1) { 
+        $row = mysqli_fetch_assoc($tag_result);
+        $food_tag_id = $row['food_tag_id'];
+        $field_values = 'tweet_id = "' . $tweet_id . '", ' .
+          'food_tag_id = "' . $food_tag_id . '"';
+        $oDB->insert('tweets_food_tags',$field_values);
+      }
+
+      // Try to get another token
+      $tok = strtok(" \n\t");
+    }
 		
     // The mentions, tags, and URLs from the entities object are also
     // parsed into separate tables so they can be data mined later
@@ -106,19 +130,6 @@ while (true) {
         'target_user_id=' . $user_mention->id;	
 				
         $oDB->insert('tweet_mentions',$field_values);
-      }
-    }
-    foreach ($entities->hashtags as $hashtag) {
-			
-      $where = 'tweet_id=' . $tweet_id . ' ' .
-        'AND tag="' . $hashtag->text . '"';		
-					
-      if(! $oDB->in_table('tweet_tags',$where)) {
-			
-        $field_values = 'tweet_id=' . $tweet_id . ', ' .
-          'tag="' . $hashtag->text . '"';	
-				
-        $oDB->insert('tweet_tags',$field_values);
       }
     }
     foreach ($entities->urls as $url) {
