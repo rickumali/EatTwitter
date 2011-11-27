@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `tweet_tags` (
 -- Introduced for Food tags (i.e. the vocabulary)
 -- This contains the food tags
 CREATE TABLE IF NOT EXISTS `food_tags` (
+  `parent_id` int(10) unsigned NOT NULL DEFAULT 0 COMMENT 'This is the id of the PARENT food_tag, if there is one. If there isn\'t one, it\'s zero',
   `food_tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'This is the id for the food tag (vocabulary)',
   `tag` varchar(100) NOT NULL COMMENT 'This is the food tag itself.',
   `level` int(1) NOT NULL COMMENT 'This is the \'level\' of the food tag. The lower the number, the more specific the tag is. In general, all tags will be level 1, BUT some tags will be level 2, to represent the \'groupings\' of the tags.',
