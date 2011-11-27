@@ -4,7 +4,7 @@
 # grouping. 
 turkey:protein
 turkeys:protein
-eggs:dairy
+eggs:protein
 pie:dessert-sweet
 brulee:dessert-sweet
 cheesecakes:dessert-sweet
@@ -40,7 +40,7 @@ egg:protein
 dessert:dessert-sweet
 cheesecake:dessert-sweet
 pudding:dessert-sweet
-# fennel
+fennel:vegetable
 # escoffier
 onions:fruit-vegetable
 risotto:grain-bread-pasta

@@ -120,6 +120,8 @@ while (true) {
           $oDB->insert('tweets_food_tags',$field_values);
         }
       }
+      // TODO: Work code to dump words that DO NOT MATCH
+      // so that it dumps to a file, or a database table.
 
       // Try to get another token
       $tok = strtok(" \n\t");
