@@ -2,6 +2,9 @@
 # make_vocabulary_list.php
 # 
 # This generates the vocabulary.list file, used by load_vocabulary.
+#
+# This also checks for duplicates as the vocabulary.list is being
+# generated.
 
 $file_list = array ('dairy.list','dessert-sweet.list','fruit-vegetable.list','grain-bread-pasta.list','protein.list');
 
@@ -13,6 +16,8 @@ fwrite($vocab_list_file, "# list contains the food vocabulary. The very first te
 fwrite($vocab_list_file, "# specific tag. Every tag after the first (separated by a colon) is the\n");
 fwrite($vocab_list_file, "# food group it belongs to.\n");
 
+$seen = array(); # Checks for duplicates!
+
 foreach ($file_list as $filename) {
   $food_group = preg_replace("/.list$/", "", $filename);
   $lines = file($filename, FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES);
@@ -20,7 +25,12 @@ foreach ($file_list as $filename) {
   foreach ($lines as $line_num => $line) {
     if (substr($line, 0, 1) != "#") {
       $line = chop($line);
+      if (array_key_exists($line, $seen)) {
+        print "I've seen $line before in " . $seen[$line] . ". It's here in $food_group.\n";
+        continue;
+      }
       fwrite($vocab_list_file, "$line:$food_group\n");
+      $seen[$line] = "$food_group";
       $line_count++;
     }
   }
