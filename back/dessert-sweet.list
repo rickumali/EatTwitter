@@ -1,11 +1,59 @@
 # This is the dessert-sweet food group. This file is 
 # processed by make_vocabulary_list.php to 
 # make the vocabulary.list.
-pie
+#
+# http://en.wikipedia.org/wiki/Dessert
+# http://en.wikipedia.org/wiki/Sweets
+# http://en.wikipedia.org/wiki/List_of_candies
+alfajor
+brittle
 brulee
-cheesecakes
-fraiche
-vanilla
-dessert
+cake
+cakes
+candies
+candy
+cane
+caramel
 cheesecake
+cheesecakes
+chocalate
+chocolate
+chocalates
+confectionery
+cookie
+cookies
+dodol
+dragee
+drops
+fondant
+fudge
+gelatin
+gobstopper
+gobstoppers
+gum
+gummies
+halvah
+jawbreaker
+jawbreakers
+kopiko
+licorice
+liquorice
+lollipop
+lollipops
+lolly
+marshmallow
+marzipan
+mithal
+nougat
+pastries
+pastry
+pectin
+peeps
+pie
+pies
 pudding
+snaps
+sours
+sugar
+taffy
+vanilla

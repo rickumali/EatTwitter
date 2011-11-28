@@ -1,4 +1,24 @@
 # This is the dairy food group. This file is 
 # processed by make_vocabulary_list.php to 
 # make the vocabulary.list.
+# 
+# http://en.wikipedia.org/wiki/Dairy_product
+butter
+buttermilk
+casein
+cheese
+clabber
+creme
+curd
+curds
+custard
+fraiche
+fromage
+gelato
+ghee
+kefir
 milk
+ricotta
+whey
+yogurt
+marscapone

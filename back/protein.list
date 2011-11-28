@@ -1,13 +1,61 @@
 # This is the protein food group. This file is 
 # processed by make_vocabulary_list.php to 
 # make the vocabulary.list.
-turkey
-turkeys
+#
+# http://en.wikipedia.org/wiki/Protein
+# http://en.wikipedia.org/wiki/Meat
+# http://en.wikipedia.org/wiki/Legume
+#
+# "Proteins are biochemical compounds consisting of one or more polypeptides
+# typically folded into a globular or fibrous form, facilitating a biological
+# function."
+#
+# "Meat is animal flesh that is used as food."
+# 
+# "Legume seed and foliage have a comparatively higher protein content than
+# non-legume material, probably due to the additional nitrogen that legumes
+# receive through nitrogen-fixation symbiosis. The high protein content makes
+# them desirable crops in agriculture."
+bacon
+bean
+beans
+beef
+bison
+buffalo
+carabao
+carob
+carp
+catfish
+cattle
+chicken
+clover
+duck
+egg
 eggs
-steak
 fish
+goat
+goose
+ham
+hams
+lamb
+legume
+lentils
+lupins
+mesquite
+ovis
+oyster
+pancetta
+pepperoni
+pork
+protein
+rabbit
+salmon
 sausage
 shrimp
-chicken
-bean
-egg
+soy
+steak
+swine
+turkey
+turkeys
+veal
+venison
