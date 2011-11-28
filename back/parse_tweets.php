@@ -14,6 +14,10 @@ $oDB = new db;
 // This should run continuously as a background process
 while (true) {
 
+  // This file tracks all the words that aren't in our 
+  // vocabulary list. This may be prohibitive to keep up. 
+  $missed_tok_file = fopen("missed.list",'a');
+
   // Process all new tweets
   $query = 'SELECT cache_id, raw_tweet ' .
     'FROM json_cache WHERE NOT parsed';
@@ -119,6 +123,10 @@ while (true) {
             'food_tag_id = "' . $parent_id . '"';
           $oDB->insert('tweets_food_tags',$field_values);
         }
+      } elseif ($num_rows > 1) {
+        print "More than one row ($num_rows) for $tok\n";
+      } else {
+        fwrite($missed_tok_file, "$tok\n");
       }
       // TODO: Work code to dump words that DO NOT MATCH
       // so that it dumps to a file, or a database table.
@@ -164,6 +172,7 @@ while (true) {
     }		
     print "Handled $tweet_id ($count out of $total)\n";
   } 
+  fclose($missed_tok_file);
 		
   // You can adjust the sleep interval to handle the tweet flow and 
   // server load you experience
