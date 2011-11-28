@@ -1,0 +1,14 @@
+# This is the fruit and vegetable food group. This file is 
+# processed by make_vocabulary_list.php to 
+# make the vocabulary.list.
+orange
+pumpkin
+cherry
+cranberry
+raspberry
+pear
+lettuce
+bananas
+strawberries
+arugula
+onions
