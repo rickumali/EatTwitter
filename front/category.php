@@ -17,7 +17,7 @@ $view_id = $row['viewid'];
 
 $result = $oDB->select("select food_tags.tag as tag,count(food_tags.tag) as cnt from tweets_food_tags,food_tags,tweets where tweets.tweet_id = tweets_food_tags.tweet_id and food_tags.food_tag_id = tweets_food_tags.food_tag_id and food_tags.parent_id = $view_id and food_tags.level = 1 group by food_tags.tag order by cnt desc");
 while($row = mysqli_fetch_assoc($result)) {
-  print "<li><a href=\"food_tag.php?view=$row[tag]\">$row[tag]</a> - $row[cnt]\n";
+  print "<li><a href=\"/eattwitter/tag/$row[tag]\">$row[tag]</a> - $row[cnt]\n";
 }
 ?>
 <hr/>
