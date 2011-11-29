@@ -11,7 +11,7 @@ Test exporting all json_cache rows. 11-23
 Test MySQL date operations. 11-23
 Start working EC2. Get a medium sized machine for now. 11-23
 Figure out multi-table delete syntax in SQL. 11-24
-Add real log() methods to parse_tweets. 11-24
+Add real log() methods to parse_tweets. 11-24 DONE 11-28
 Implement "junction table" for all tags. 11-25 DONE 11-26
 Implement code in parse_tweets to reread vocabulary file. 11-25 DONE 11-26
 Add while loop (TODO in parse_tweets) for multi-hierarchy. 11-26
@@ -19,3 +19,4 @@ Make a tool to make vocabulary list from separate files. 11-27 DONE 11-27
 Use USDA food groups. 11-27 DONE 11-27
 Add code for 'misses' file (words NOT MATCHING vocabulary). 11-27 DONE 11-27
 Export tables and add to Drupal 7 database. 11-27
+Handle simple thesauri (plurals, misspells). 11-28

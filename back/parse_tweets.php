@@ -3,6 +3,7 @@
 * parse_tweets.php
 * Populate the database with new tweet data from the json_cache table
 * Latest copy of this code: http://140dev.com/free-twitter-api-source-code-library/
+* @author Rick Umali <rickumali@gmail.com>
 * @author Adam Green <140dev@gmail.com>
 * @license GNU Public License
 * @version BETA 0.10
@@ -123,8 +124,9 @@ while (true) {
             'food_tag_id = "' . $parent_id . '"';
           $oDB->insert('tweets_food_tags',$field_values);
         }
+        error_log("parse_tweets.php: Matched $tok for $tweet_id\n");
       } elseif ($num_rows > 1) {
-        print "More than one row ($num_rows) for $tok\n";
+        error_log("parse_tweets.php: More than one row ($num_rows) for $tok for $tweet_id\n");
       } else {
         fwrite($missed_tok_file, "$tok\n");
       }
@@ -170,14 +172,13 @@ while (true) {
         $oDB->insert('tweet_urls',$field_values);
       }
     }		
-    print "Handled $tweet_id ($count out of $total)\n";
+    error_log("parse_tweets.php: Handled $tweet_id ($count out of $total)\n");
   } 
   fclose($missed_tok_file);
 		
   // You can adjust the sleep interval to handle the tweet flow and 
   // server load you experience
-  print "Sleeping for a bit...";
-  sleep(10);
+  sleep(30);
 }
 
 ?>
