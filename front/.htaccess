@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Maps:
+#   http://localhost/eattwitter/foodgroup/dairy
+# to:
+#   http://localhost/eattwitter/category.php?view=dairy
+
+# RewriteRule ^/eattwitter/foodgroup/(.*) /eattwitter/category.php?view=$1
+RewriteRule ^foodgroup/(.*) category.php?view=$1
+
+# Maps:
+#   http://localhost/eattwitter/tag/butter
+# to:
+#   http://localhost/eattwitter/food_tag.php?view=butter
+
+# RewriteRule ^/eattwitter/tag/(.*) /eattwitter/food_tag.php?view=$1
+RewriteRule ^tag/(.*) food_tag.php?view=$1
