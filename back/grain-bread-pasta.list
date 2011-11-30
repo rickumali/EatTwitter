@@ -5,6 +5,10 @@
 # http://en.wikipedia.org/wiki/Cereal (grains)
 # http://en.wikipedia.org/wiki/List_of_breads
 # http://en.wikipedia.org/wiki/List_of_pasta
+#
+# NOTE: Only ONE plural form is allowed, and it 
+# must be separated from the singular form by a comma,
+# WITHOUT spaces!
 agnolotti
 aish
 almonds
@@ -30,8 +34,7 @@ bhakri
 bhatoora
 biang
 bing
-biscuit
-biscuits
+biscuit,biscuits
 bolani
 boule
 bread

@@ -16,9 +16,12 @@
 # non-legume material, probably due to the additional nitrogen that legumes
 # receive through nitrogen-fixation symbiosis. The high protein content makes
 # them desirable crops in agriculture."
+#
+# NOTE: Only ONE plural form is allowed, and it 
+# must be separated from the singular form by a comma,
+# WITHOUT spaces!
 bacon
-bean
-beans
+bean,beans
 beef
 bison
 buffalo
@@ -30,24 +33,22 @@ cattle
 chicken
 clover
 duck
-egg
-eggs
+egg,eggs
 fish
 goat
 goose
-ham
-hams
+ham,hams
+halibut
 lamb
 legume
-lentils
+lentil,lentils
 lupins
 mesquite
 ovis
-oyster
+oyster,oysters
 pancetta
 pepperoni
 pork
-protein
 rabbit
 salmon
 sausage
@@ -55,7 +56,6 @@ shrimp
 soy
 steak
 swine
-turkey
-turkeys
+turkey,turkeys
 veal
 venison

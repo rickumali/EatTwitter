@@ -5,55 +5,48 @@
 # http://en.wikipedia.org/wiki/Dessert
 # http://en.wikipedia.org/wiki/Sweets
 # http://en.wikipedia.org/wiki/List_of_candies
+# NOTE: Only ONE plural form is allowed, and it 
+# must be separated from the singular form by a comma,
+# WITHOUT spaces!
 alfajor
 brittle
 brulee
-cake
-cakes
-candies
-candy
+cake,cakes
+candy,candies
 cane
 caramel
-cheesecake
-cheesecakes
-chocalate
+cheesecake,cheesecakes
+chocalate,chocalates
 chocolate
-chocalates
 confectionery
-cookie
-cookies
+cookie,cookies
 dodol
 dragee
 drops
 fondant
 fudge
 gelatin
-gobstopper
-gobstoppers
+gobstopper,gobstoppers
 gum
 gummies
 halvah
-jawbreaker
-jawbreakers
+jawbreaker,jawbreakers
 kopiko
 licorice
 liquorice
-lollipop
-lollipops
+lollipop,lollipops
 lolly
 marshmallow
 marzipan
 mithal
 nougat
-pastries
-pastry
+pastry,pastries
 pectin
 peeps
-pie
-pies
+pie,pies
 pudding
 snaps
 sours
-sugar
-taffy
+sugar,sugars
+taffy,taffies
 vanilla

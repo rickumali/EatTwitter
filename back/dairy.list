@@ -3,22 +3,25 @@
 # make the vocabulary.list.
 # 
 # http://en.wikipedia.org/wiki/Dairy_product
+#
+# NOTE: Only ONE plural form is allowed, and it 
+# must be separated from the singular form by a comma,
+# WITHOUT spaces!
 butter
 buttermilk
 casein
 cheese
 clabber
 creme
-curd
-curds
+curd,curds
 custard
 fraiche
 fromage
 gelato
 ghee
 kefir
+marscapone
 milk
 ricotta
 whey
 yogurt
-marscapone
