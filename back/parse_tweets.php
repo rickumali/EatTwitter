@@ -106,7 +106,7 @@ while (true) {
       // We have the cleaned up word ($tok) (aka token)
       // Check if the word exists in food_tags. If it does, add the tag
       // and the tweet to a row in the junction table.
-      $tag_result = $oDB->select('SELECT food_tag_id,parent_id from food_tags where tag="' . $tok . '"');
+      $tag_result = $oDB->select('SELECT food_tag_id,parent_id from food_tags where tag="' . $tok . '" or tag_plural="' . $tok . '"');
       $num_rows = mysqli_num_rows($tag_result);
       if ($num_rows == 1) { 
         $row = mysqli_fetch_assoc($tag_result);
