@@ -16,3 +16,15 @@ RewriteRule ^tag/(.*) food_tag.php?view=$1
 
 # Maps thankyou.html to the PHP version
 RewriteRule ^thankyou.htm(l?) thankyou.php
+
+# Maps PHP files to index.php
+RewriteRule ^db_lib.php /eattwitter/ [L,R]
+RewriteRule ^db_config.php /eattwitter/ [L,R]
+RewriteRule ^140dev_config.php /eattwitter/ [L,R]
+
+<Files db_status.php>
+AuthType Basic
+AuthName "Statistics"
+AuthUserFile /home/quickstart/eattwitter/front/access.lst
+Require user rickumali
+</Files>
