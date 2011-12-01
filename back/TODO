@@ -19,10 +19,12 @@ Make a tool to make vocabulary list from separate files. 11-27 DONE 11-27
 Use USDA food groups. 11-27 DONE 11-27
 Add code for 'misses' file (words NOT MATCHING vocabulary). 11-27 DONE 11-27
 Export tables and add to Drupal 7 database. 11-27
-Handle simple thesauri (plurals, misspells). 11-28
+Handle simple plurals. 11-28 DONE 11-29
+Handle simple misspells. 11-28
 Find code to display tweet via PHP. 11-28
-Add .htaccess code for bad URLs. 11-28
-Add .htaccess code for DB files. 11-28
+Add .htaccess code for bad URLs. 11-28 DONE 11-30
+Add .htaccess code for DB files. 11-28 DONE 11-30
 Get source code up to github or someplace else. 11-28
-Remove unused table in MySQL set up file. 11-28
+Remove unused table in MySQL set up file. 11-28 DONE 11-29
 Add column descriptions in MySQL set up file. 11-28
+Refactor generation and loading of vocabulary. 11-30
