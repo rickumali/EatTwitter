@@ -1,9 +1,10 @@
 <?php
+$view=$_GET['view'];
+$title = "Foodgroup $view ";
 require('header.html');
 require_once('./140dev_config.php');
 require_once('./db_lib.php');
 $oDB = new db;
-$view=$_GET['view'];
 $pS = $oDB->dbh->prepare("select food_tags.food_tag_id as viewid from food_tags where tag = ?");
 $pS->bind_param('s',$view);
 $pS->execute();

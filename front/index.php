@@ -1,6 +1,6 @@
 <?php
+$title = "";
 require('header.html');
-
 require_once('./140dev_config.php');
 require_once('./db_lib.php');
 $oDB = new db;
