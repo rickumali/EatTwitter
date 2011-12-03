@@ -24,7 +24,9 @@ Handle simple misspells. 11-28
 Find code to display tweet via PHP. 11-28
 Add .htaccess code for bad URLs. 11-28 DONE 11-30
 Add .htaccess code for DB files. 11-28 DONE 11-30
-Get source code up to github or someplace else. 11-28
+Get source code up to github or someplace else. 11-28 DONE 11-28
 Remove unused table in MySQL set up file. 11-28 DONE 11-29
 Add column descriptions in MySQL set up file. 11-28
 Refactor generation and loading of vocabulary. 11-30
+Use prepared statements to prevent SQL injection. 12-3 DONE 12-3
+Work $title to display nicer name 'Fruits and Vegetables' instead of 'fruit-vegetable'. 12-3
