@@ -28,12 +28,19 @@ if (mysqli_num_rows($result) == 0) {
   exit();
 }
 print "<h2>Tweets mentioning '$view'</h2>\n";
-print "<ol>";
+print "<table id=\"tweetTable\">\n";
+print "<thead>\n";
+print "<tr>\n";
+print "<th>Tweet</th>\n";
+print "</tr>\n";
+print "</thead>\n";
+print "<tbody>\n";
 
 $tweet_template = file_get_contents('tweet_template.txt');
 
 while($row = mysqli_fetch_assoc($result)) {
-  print "<li>";
+  print "<tr>";
+  print "<td>";
 
   // create a fresh copy of the empty template
   $current_tweet = $tweet_template;
@@ -63,8 +70,11 @@ while($row = mysqli_fetch_assoc($result)) {
     $row['tweet_id'], $current_tweet); 
 
   print $current_tweet;
+  print "</td>";
+  print "</tr>";
 }
-print "</ol>";
+print "</tbody>\n";
+print "</table>\n";
 
 // Convert the tweet creation date/time to Twitter format
 // This eliminates annoying server vs. browser time zone differences
