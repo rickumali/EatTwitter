@@ -16,7 +16,7 @@ if (mysqli_num_rows($result) == 0) {
 <?php
 while($row = mysqli_fetch_assoc($result)) {
   # print "<li><a href=\"foodgroup/".$row['tag']."\">" . $food_group[$row['tag']] . "</a> - $row[cnt]\n";
-  print "<li><a href=\"foodgroup/$row[tag]\">$row[tag]</a> - $row[cnt]\n";
+  print "<li><a href=\"foodgroup/$row[tag]\">".$food_group[$row['tag']]."</a> - $row[cnt]\n";
 }
 require('footer.html');
 ?>
