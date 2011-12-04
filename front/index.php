@@ -13,10 +13,19 @@ if (mysqli_num_rows($result) == 0) {
 }
 ?>
 <h2>Eat Twitter</h2>
+<table id="foodgroupsTable" class="tablesorter">
+<thead>
+<tr>
+<th>Food Group</th>
+<th>Mentions</th>
+</tr>
+</thead>
+<tbody>
 <?php
 while($row = mysqli_fetch_assoc($result)) {
-  # print "<li><a href=\"foodgroup/".$row['tag']."\">" . $food_group[$row['tag']] . "</a> - $row[cnt]\n";
-  print "<li><a href=\"foodgroup/$row[tag]\">".$food_group[$row['tag']]."</a> - $row[cnt]\n";
+  print "<tr>\n<td><a href=\"foodgroup/$row[tag]\">".$food_group[$row['tag']]."</a></td>\n<td>$row[cnt]</td></tr>\n";
 }
+print "</tbody>";
+print "</table>";
 require('footer.html');
 ?>
