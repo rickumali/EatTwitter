@@ -27,8 +27,18 @@ if (mysqli_num_rows($result) == 0) {
   exit();
 }
 print "<h2>Food Group: $food_group[$view]</h2>\n";
+print "<table id=\"foodgroupsTable\" class=\"tablesorter\">\n";
+print "<thead>\n";
+print "<tr>\n";
+print "<th>Tag</th>\n";
+print "<th>Mentions</th>\n";
+print "</tr>\n";
+print "</thead>\n";
+print "<tbody>\n";
 while($row = mysqli_fetch_assoc($result)) {
-  print "<li><a href=\"/eattwitter/tag/$row[tag]\">$row[tag]</a> - $row[cnt]\n";
+  print "<tr>\n<td><a href=\"/eattwitter/tag/$row[tag]\">$row[tag]</a></td>\n<td>$row[cnt]</td></tr>\n";
 }
+print "</tbody>\n";
+print "</table>\n";
 require('footer.html');
 ?>
