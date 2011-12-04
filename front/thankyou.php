@@ -1,4 +1,5 @@
 <?php
+$title='';
 require('header.html');
 ?>
 <h2>Eat Twitter</h2>

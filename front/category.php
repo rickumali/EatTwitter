@@ -1,6 +1,7 @@
 <?php
+require('foodgroup_mapping.php');
 $view=$_GET['view'];
-$title = "Foodgroup $view ";
+$title = "Food Group: $food_group[$view] at ";
 require('header.html');
 require_once('./140dev_config.php');
 require_once('./db_lib.php');
@@ -25,7 +26,7 @@ if (mysqli_num_rows($result) == 0) {
   header('Location: /eattwitter/thankyou.html');
   exit();
 }
-print "<h2>$view</h2>\n";
+print "<h2>Food Group: $food_group[$view]</h2>\n";
 while($row = mysqli_fetch_assoc($result)) {
   print "<li><a href=\"/eattwitter/tag/$row[tag]\">$row[tag]</a> - $row[cnt]\n";
 }

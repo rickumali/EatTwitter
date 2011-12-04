@@ -1,4 +1,5 @@
 <?php
+require('foodgroup_mapping.php');
 $title = "";
 require('header.html');
 require_once('./140dev_config.php');
@@ -14,6 +15,7 @@ if (mysqli_num_rows($result) == 0) {
 <h2>Eat Twitter</h2>
 <?php
 while($row = mysqli_fetch_assoc($result)) {
+  # print "<li><a href=\"foodgroup/".$row['tag']."\">" . $food_group[$row['tag']] . "</a> - $row[cnt]\n";
   print "<li><a href=\"foodgroup/$row[tag]\">$row[tag]</a> - $row[cnt]\n";
 }
 require('footer.html');
