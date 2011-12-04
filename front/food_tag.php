@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) == 0) {
 }
 print "<h2>Tweets mentioning '$view'</h2>\n";
 print "<table id=\"tweetTable\">\n";
-print "<thead>\n";
+print "<thead class=\"hidden\">\n";
 print "<tr>\n";
 print "<th>Tweet</th>\n";
 print "</tr>\n";
