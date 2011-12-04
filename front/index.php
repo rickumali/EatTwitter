@@ -13,6 +13,7 @@ if (mysqli_num_rows($result) == 0) {
 }
 ?>
 <h2>Eat Twitter</h2>
+<div id="default" class="graph"></div>
 <table id="foodgroupsTable" class="tablesorter">
 <thead>
 <tr>
@@ -22,10 +23,16 @@ if (mysqli_num_rows($result) == 0) {
 </thead>
 <tbody>
 <?php
+$js_data = '';
 while($row = mysqli_fetch_assoc($result)) {
   print "<tr>\n<td><a href=\"foodgroup/$row[tag]\">".$food_group[$row['tag']]."</a></td>\n<td>$row[cnt]</td></tr>\n";
+  $js_data .= "{ label: \"" . $food_group[$row['tag']]  . " \",  data: $row[cnt]},\n";
 }
 print "</tbody>";
 print "</table>";
+
+$flot_pie_template = file_get_contents('flot_pie_template.txt');
+$flot_pie_template = str_replace( '[PIE_DATA]', $js_data, $flot_pie_template );
+print $flot_pie_template;
 require('footer.html');
 ?>

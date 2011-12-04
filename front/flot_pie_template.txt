@@ -1,0 +1,18 @@
+<script type="text/javascript">
+$(function () {
+        // data
+        var data = [
+          [PIE_DATA]
+        ];
+
+        $.plot($("#default"), data, 
+        {
+                series: {
+                        pie: { 
+                                show: true
+                        }
+                }
+        });
+});
+</script>
+
