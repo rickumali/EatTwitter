@@ -29,5 +29,6 @@ Remove unused table in MySQL set up file. 11-28 DONE 11-29
 Add column descriptions in MySQL set up file. 11-28
 Refactor generation and loading of vocabulary. 11-30
 Use prepared statements to prevent SQL injection. 12-3 DONE 12-3
-Work $title to display nicer name 'Fruits and Vegetables' instead of 'fruit-vegetable'. 12-3
+Work $title to display nicer name 'Fruits and Vegetables' instead of 'fruit-vegetable'. 12-3 DONE 12-3
 Move AuthUserFile out of http area. 12-3
+http://tablesorter.com/docs/ 12-3
