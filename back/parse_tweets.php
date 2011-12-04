@@ -137,7 +137,7 @@ while (true) {
       $tok = strtok(" \n\t");
     }
 		
-    // The mentions, tags, and URLs from the entities object are also
+    // The mentions, and URLs from the entities object are also
     // parsed into separate tables so they can be data mined later
     foreach ($entities->user_mentions as $user_mention) {
 		
