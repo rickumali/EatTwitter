@@ -28,6 +28,7 @@ if (mysqli_num_rows($result) == 0) {
 }
 print "<div id=\"bd\">\n";
 print "<h2>Food Group: $food_group[$view]</h2>\n";
+print "<div id=\"default\" class=\"graph\"></div>\n";
 print "<table id=\"foodgroupsTable\" class=\"tablesorter\">\n";
 print "<thead>\n";
 print "<tr>\n";
@@ -36,11 +37,16 @@ print "<th>Mentions</th>\n";
 print "</tr>\n";
 print "</thead>\n";
 print "<tbody>\n";
+$pie_chart_data = '';
 while($row = mysqli_fetch_assoc($result)) {
   print "<tr>\n<td><a href=\"/eattwitter/tag/$row[tag]\">$row[tag]</a></td>\n<td>$row[cnt]</td></tr>\n";
+  $pie_chart_data .= "{ label: \"" . $row['tag']  . " \",  data: $row[cnt]},\n";
 }
 print "</tbody>\n";
 print "</table>\n";
+$tag_pie_template = file_get_contents('tag_pie_template.txt');
+$tag_pie_template = str_replace( '[PIE_DATA]', $pie_chart_data, $tag_pie_template );
+print $tag_pie_template;
 print "</div>\n"; // This is for the 'bd'
 require('footer.html'); // Contains closing div for doc
 ?>

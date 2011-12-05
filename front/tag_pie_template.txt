@@ -1,0 +1,32 @@
+<script type="text/javascript">
+$(function () {
+  // data
+  var data = [
+    [PIE_DATA]
+  ];
+
+  $.plot($("#default"), data, 
+  {
+    series: {
+      pie: { 
+        show: true,
+        label: {
+          show: true,
+          threshold: .05,
+          formatter: function(label, series) {
+            return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+            },
+          background: {
+            opacity: 0.5,
+            color: '#000'
+          }
+        }
+      }
+    },
+    legend: {
+      show: false
+    }
+  });
+});
+</script>
+
