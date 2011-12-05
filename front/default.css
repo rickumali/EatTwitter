@@ -101,8 +101,8 @@
 * For flot
 */
 div.graph {
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 400px;
   float: left;
   border: 1px dashed gainsboro;
 }
