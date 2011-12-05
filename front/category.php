@@ -26,8 +26,10 @@ if (mysqli_num_rows($result) == 0) {
   header('Location: /eattwitter/thankyou.html');
   exit();
 }
-print "<div id=\"bd\">\n";
+print "<div id=\"hd\">\n";
 print "<h2>Food Group: $food_group[$view]</h2>\n";
+print "</div>\n";
+print "<div id=\"bd\">\n";
 print "<div id=\"default\" class=\"graph\"></div>\n";
 print "<table id=\"foodgroupsTable\" class=\"tablesorter\">\n";
 print "<thead>\n";

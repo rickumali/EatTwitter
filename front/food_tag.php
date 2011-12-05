@@ -27,8 +27,10 @@ if (mysqli_num_rows($result) == 0) {
   header('Location: /eattwitter/thankyou.html');
   exit();
 }
-print "<div id=\"bd\">\n";
+print "<div id=\"hd\">\n";
 print "<h2>Tweets mentioning '$view'</h2>\n";
+print "</div>\n"; // This is for the 'hd'
+print "<div id=\"bd\">\n";
 print "<table id=\"tweetTable\">\n";
 print "<thead class=\"hidden\">\n";
 print "<tr>\n";

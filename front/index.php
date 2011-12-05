@@ -12,8 +12,10 @@ if (mysqli_num_rows($result) == 0) {
   exit();
 }
 ?>
+<div id="hd">
+Eat Twitter
+</div>
 <div id="bd">
-<h2>Eat Twitter</h2>
 <div id="default" class="graph"></div>
 <table id="foodgroupsTable" class="tablesorter">
 <thead>
