@@ -27,6 +27,7 @@ if (mysqli_num_rows($result) == 0) {
   header('Location: /eattwitter/thankyou.html');
   exit();
 }
+print "<div id=\"bd\">\n";
 print "<h2>Tweets mentioning '$view'</h2>\n";
 print "<table id=\"tweetTable\">\n";
 print "<thead class=\"hidden\">\n";
@@ -75,6 +76,7 @@ while($row = mysqli_fetch_assoc($result)) {
 }
 print "</tbody>\n";
 print "</table>\n";
+print "</div>\n"; // This is for the 'bd'
 
 // Convert the tweet creation date/time to Twitter format
 // This eliminates annoying server vs. browser time zone differences
@@ -97,5 +99,5 @@ function twitter_time($time) {
   }
 }
 
-require('footer.html');
+require('footer.html'); // Contains closing div for doc
 ?>

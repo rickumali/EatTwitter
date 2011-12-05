@@ -26,6 +26,7 @@ if (mysqli_num_rows($result) == 0) {
   header('Location: /eattwitter/thankyou.html');
   exit();
 }
+print "<div id=\"bd\">\n";
 print "<h2>Food Group: $food_group[$view]</h2>\n";
 print "<table id=\"foodgroupsTable\" class=\"tablesorter\">\n";
 print "<thead>\n";
@@ -40,5 +41,6 @@ while($row = mysqli_fetch_assoc($result)) {
 }
 print "</tbody>\n";
 print "</table>\n";
-require('footer.html');
+print "</div>\n"; // This is for the 'bd'
+require('footer.html'); // Contains closing div for doc
 ?>

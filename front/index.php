@@ -12,6 +12,7 @@ if (mysqli_num_rows($result) == 0) {
   exit();
 }
 ?>
+<div id="bd">
 <h2>Eat Twitter</h2>
 <div id="default" class="graph"></div>
 <table id="foodgroupsTable" class="tablesorter">
@@ -34,5 +35,6 @@ print "</table>";
 $flot_pie_template = file_get_contents('flot_pie_template.txt');
 $flot_pie_template = str_replace( '[PIE_DATA]', $js_data, $flot_pie_template );
 print $flot_pie_template;
+print "</div>\n"; // This is for the 'bd' 
 require('footer.html');
 ?>
