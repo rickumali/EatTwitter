@@ -10,7 +10,6 @@ $pS = $oDB->dbh->prepare("select food_tags.food_tag_id as viewid from food_tags 
 $pS->bind_param('s',$view);
 $pS->execute();
 $pS->bind_result($view_id);
-
 $count = 0;
 while ($pS->fetch()) {
   $count++;
@@ -26,29 +25,37 @@ if (mysqli_num_rows($result) == 0) {
   header('Location: /eattwitter/thankyou.html');
   exit();
 }
-print "<div id=\"hd\">\n";
+?>
+<div id="hd">
+<?php
 print "<h2>Food Group: $food_group[$view]</h2>\n";
-print "</div>\n";
-print "<div id=\"bd\">\n";
-print "<div id=\"default\" class=\"graph\"></div>\n";
-print "<table id=\"foodgroupsTable\" class=\"tablesorter\">\n";
-print "<thead>\n";
-print "<tr>\n";
-print "<th>Tag</th>\n";
-print "<th>Mentions</th>\n";
-print "</tr>\n";
-print "</thead>\n";
-print "<tbody>\n";
+?>
+</div>
+<div id="bd">
+<div id="default" class="graph"></div>
+<table id="foodgroupsTable" class="tablesorter">
+<thead>
+<tr>
+<th>Tag</th>
+<th>Mentions</th>
+</tr>
+</thead>
+<tbody>
+<?php
 $pie_chart_data = '';
 while($row = mysqli_fetch_assoc($result)) {
   print "<tr>\n<td><a href=\"/eattwitter/tag/$row[tag]\">$row[tag]</a></td>\n<td>$row[cnt]</td></tr>\n";
   $pie_chart_data .= "{ label: \"" . $row['tag']  . " \",  data: $row[cnt]},\n";
 }
-print "</tbody>\n";
-print "</table>\n";
+?>
+</tbody>
+</table>
+<?php
 $tag_pie_template = file_get_contents('tag_pie_template.txt');
 $tag_pie_template = str_replace( '[PIE_DATA]', $pie_chart_data, $tag_pie_template );
 print $tag_pie_template;
-print "</div>\n"; // This is for the 'bd'
+?>
+</div> <!-- This is for the 'bd' -->
+<?php
 require('footer.html'); // Contains closing div for doc
 ?>

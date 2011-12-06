@@ -31,12 +31,16 @@ while($row = mysqli_fetch_assoc($result)) {
   print "<tr>\n<td><a href=\"foodgroup/$row[tag]\">".$food_group[$row['tag']]."</a></td>\n<td>$row[cnt]</td></tr>\n";
   $pie_chart_data .= "{ label: \"" . $food_group[$row['tag']]  . " \",  data: $row[cnt]},\n";
 }
-print "</tbody>";
-print "</table>";
+?>
+</tbody>
+</table>
 
-$flot_pie_template = file_get_contents('flot_pie_template.txt');
-$flot_pie_template = str_replace( '[PIE_DATA]', $pie_chart_data, $flot_pie_template );
-print $flot_pie_template;
-print "</div>\n"; // This is for the 'bd' 
-require('footer.html');
+<?php
+$foodgroup_pie_template = file_get_contents('foodgroup_pie_template.txt');
+$foodgroup_pie_template = str_replace( '[PIE_DATA]', $pie_chart_data, $foodgroup_pie_template );
+print $foodgroup_pie_template;
+?>
+</div> <!-- This is for the 'bd' -->
+<?php
+require('footer.html'); // Contains closing div for doc
 ?>

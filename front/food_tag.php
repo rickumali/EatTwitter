@@ -11,7 +11,6 @@ $pS = $oDB->dbh->prepare("select food_tags.food_tag_id as viewid from food_tags 
 $pS->bind_param('s',$view);
 $pS->execute();
 $pS->bind_result($view_id);
-
 $count = 0;
 while ($pS->fetch()) {
   $count++;
@@ -27,18 +26,22 @@ if (mysqli_num_rows($result) == 0) {
   header('Location: /eattwitter/thankyou.html');
   exit();
 }
-print "<div id=\"hd\">\n";
+?>
+<div id="hd">
+<?php
 print "<h2>Tweets mentioning '$view'</h2>\n";
-print "</div>\n"; // This is for the 'hd'
-print "<div id=\"bd\">\n";
-print "<table id=\"tweetTable\">\n";
-print "<thead class=\"hidden\">\n";
-print "<tr>\n";
-print "<th>Tweet</th>\n";
-print "</tr>\n";
-print "</thead>\n";
-print "<tbody>\n";
+?>
+</div>
+<div id="bd">
+<table id="tweetTable">
+<thead class="hidden">
+<tr>
+<th>Tweet</th>
+</tr>
+</thead>
+<tbody>
 
+<?php
 $tweet_template = file_get_contents('tweet_template.txt');
 
 while($row = mysqli_fetch_assoc($result)) {
@@ -76,10 +79,12 @@ while($row = mysqli_fetch_assoc($result)) {
   print "</td>";
   print "</tr>";
 }
-print "</tbody>\n";
-print "</table>\n";
-print "</div>\n"; // This is for the 'bd'
+?>
+</tbody>
+</table>
+</div> <!-- This is for the 'bd' -->
 
+<?php
 // Convert the tweet creation date/time to Twitter format
 // This eliminates annoying server vs. browser time zone differences
 function twitter_time($time) {
@@ -100,6 +105,5 @@ function twitter_time($time) {
     return floor($delta / 86400) . ' days ago';
   }
 }
-
 require('footer.html'); // Contains closing div for doc
 ?>
