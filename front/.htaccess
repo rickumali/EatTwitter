@@ -18,9 +18,9 @@ RewriteRule ^tag/(.*) food_tag.php?view=$1
 RewriteRule ^thankyou.htm(l?) thankyou.php
 
 # Maps PHP files to index.php
-RewriteRule ^db_lib.php /eattwitter/ [L,R]
-RewriteRule ^db_config.php /eattwitter/ [L,R]
-RewriteRule ^140dev_config.php /eattwitter/ [L,R]
+RewriteRule ^db_lib.php / [L,R]
+RewriteRule ^db_config.php / [L,R]
+RewriteRule ^140dev_config.php / [L,R]
 
 <Files db_status.php>
 AuthType Basic
