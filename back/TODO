@@ -30,13 +30,13 @@ Add column descriptions in MySQL set up file. 11-28
 Refactor generation and loading of vocabulary. 11-30
 Use prepared statements to prevent SQL injection. 12-3 DONE 12-3
 Work $title to display nicer name 'Fruits and Vegetables' instead of 'fruit-vegetable'. 12-3 DONE 12-3
-Move AuthUserFile out of http area. 12-3
+Move AuthUserFile out of http area. 12-3 DONE 12-12
 http://tablesorter.com/docs/ 12-3 DONE 12-4
 Add web 'intents' for each Twitter link. 12-4
 Highlight food_tag terms for each tweet. 12-4
 Pie chart! 12-4 DONE 12-4
 LOGO! 12-4
-Protect the *.txt files. 12-4
+Protect the *.txt files. 12-4 DONE 12-12
 A flow that has tweets on same page as pie chart! 12-4
 Better 'breadcrumbing' (link back to food group from tag). 12-5
 Don't do Location (302) to thankyou or /. Just dump new page. 12-11
