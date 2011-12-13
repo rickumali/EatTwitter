@@ -22,9 +22,14 @@ RewriteRule ^db_lib.php / [L,R]
 RewriteRule ^db_config.php / [L,R]
 RewriteRule ^140dev_config.php / [L,R]
 
+# Maps TXT files to index.php
+RewriteRule (.*).txt$ / [L,R]
+RewriteRule INSTALL / [L,R]
+RewriteRule README / [L,R]
+
 <Files db_status.php>
 AuthType Basic
 AuthName "Statistics"
-AuthUserFile /home/quickstart/eattwitter/front/access.lst
+AuthUserFile /home/eattwitter/code/back/access.lst
 Require user rickumali
 </Files>
