@@ -23,8 +23,8 @@ $ vim 140dev_config.php db_config.php
 Run "php db_test.php" and "php db_status.php" to confirm that the settings
 "worked" and that the tables are present in the system.
 
-CREATE THE VOCABULARY
----------------------
+CREATE AND LOAD THE VOCABULARY
+------------------------------
 
 $ php make_vocabulary_list.php
 Wrote 18 lines to vocabulary.list from dairy.list.
@@ -34,6 +34,8 @@ Wrote 217 lines to vocabulary.list from grain-bread-pasta.list.
 Wrote 39 lines to vocabulary.list from protein.list.
 $ wc vocabulary.list
   419   468 10338 vocabulary.list
+
+$ php load_vocabulary.php
 
 OPTIONALLY UPDATE THE USER LIST
 -------------------------------
