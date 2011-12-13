@@ -31,6 +31,7 @@ while($row = mysqli_fetch_assoc($result)) {
   print "<tr>\n<td><a href=\"foodgroup/$row[tag]\">".$food_group[$row['tag']]."</a></td>\n<td>$row[cnt]</td></tr>\n";
   $pie_chart_data .= "{ label: \"" . $food_group[$row['tag']]  . " \",  data: $row[cnt]},\n";
 }
+$pie_chart_data = rtrim($pie_chart_data, "\n,");
 ?>
 </tbody>
 </table>
