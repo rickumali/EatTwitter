@@ -47,6 +47,7 @@ while($row = mysqli_fetch_assoc($result)) {
   print "<tr>\n<td><a href=\"/tag/$row[tag]\">$row[tag]</a></td>\n<td>$row[cnt]</td></tr>\n";
   $pie_chart_data .= "{ label: \"" . $row['tag']  . " \",  data: $row[cnt]},\n";
 }
+$pie_chart_data = rtrim($pie_chart_data, "\n,");
 ?>
 </tbody>
 </table>
