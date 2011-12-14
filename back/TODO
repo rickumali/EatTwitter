@@ -43,3 +43,6 @@ Don't do Location (302) to thankyou or /. Just dump new page. 12-11
 Add UI for sorter "asc/desc" toggles. 12-11
 Fix logging for back-end code. 12-12 DONE 12-12
 Confirm that email works on PROD. 12-12
+Add 'crab'. 12-13
+Add 'tenderloin'. 12-13
+Add 'tater'. 12-13
