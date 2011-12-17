@@ -20,7 +20,7 @@ if ($count == 0) {
   header('Location: /');
   exit();
 }
-$result = $oDB->select("select profile_image_url, created_at, screen_name, name, tweet_text, tweets.tweet_id, entities from tweets, tweets_food_tags where tweets_food_tags.food_tag_id = $view_id and tweets_food_tags.tweet_id = tweets.tweet_id ORDER BY tweet_id DESC");
+$result = $oDB->select("select profile_image_url, created_at, screen_name, name, tweet_text, tweets.tweet_id, entities from tweets, tweets_food_tags where tweets_food_tags.food_tag_id = $view_id and tweets_food_tags.tweet_id = tweets.tweet_id and created_at > now() - INTERVAL 24 hour ORDER BY tweet_id DESC");
 if (mysqli_num_rows($result) == 0) {
   ob_end_clean();
   header('Location: /thankyou.html');
