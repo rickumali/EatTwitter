@@ -1,0 +1,38 @@
+--
+-- This script resets the dates in the Tweets database 
+-- so that (for a few days at least) there will be tweets with
+-- valid dates that can be returned. This is needed only in 
+-- development environments.
+--
+
+-- This script follows 3 steps.
+
+-- 1. Grab the smallest date, and the largest date from the 
+-- tweets database.
+-- See http://stackoverflow.com/questions/6987213/mysql-how-to-get-results-after-prepare-and-execute-in-stored-procedure
+select min(created_at) from tweets into @min_date;
+select max(created_at) from tweets into @max_date;
+select curdate() into @cur_date;
+
+-- Uncomment these to see the values
+-- select @min_date;
+-- select @max_date;
+-- select @cur_date;
+
+-- 2. Calculate the 'span' between tweets (the difference between
+-- the min and max created_at times), and the 'span' between the 
+-- newest tweet and today.
+select abs(datediff(@min_date, @max_date)) into @min_to_max_days;
+select abs(datediff(@max_date, @cur_date)) into @max_to_today_days;
+
+-- Uncomment these to see the values
+-- select @min_to_max_days;
+-- select @max_to_today_days;
+
+-- 2. Now calculate the delta to add to all the records. Note that
+-- we subtract ONE so that we can get some valid tweets.
+select @min_to_max_days + @max_to_today_days - 1 into @delta;
+
+-- 3. Now update all the records
+update tweets
+set created_at=created_at+interval @delta day
