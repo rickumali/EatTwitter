@@ -27,12 +27,14 @@ avocado
 banana,bananas
 beet,beets
 berry,berries
+blackberry,blackberries
 blackcurrant
 blueberry,blueberries
 breadfruit
 broccoli
 broccolini
 burdocks
+cabbage,cabbages
 capers
 capsule
 cardoon
@@ -44,6 +46,7 @@ chard
 cherry
 choi
 christophene
+coconut,coconuts
 collard
 cranberry
 cucumber
@@ -68,7 +71,7 @@ leeks
 lemon,lemons
 lettuce
 lucuma
-melon
+melon,melons
 mulberry
 mushroom,mushrooms
 nut
@@ -105,9 +108,10 @@ strawberry,strawberries
 taro
 thubarb
 tomatillo,tomatillos
-tomato
+tomato,tomatoes
 turnips
 urad
 watercress
+watermelon,watermelons
 yams
 zucchini,zucchinis

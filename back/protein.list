@@ -5,6 +5,7 @@
 # http://en.wikipedia.org/wiki/Protein
 # http://en.wikipedia.org/wiki/Meat
 # http://en.wikipedia.org/wiki/Legume
+# http://www.choosemyplate.gov/food-groups/protein-foods.html
 #
 # "Proteins are biochemical compounds consisting of one or more polypeptides
 # typically folded into a globular or fibrous form, facilitating a biological
@@ -32,6 +33,7 @@ carp
 catfish
 cattle
 chicken
+chorizo
 clover
 duck
 egg,eggs
@@ -44,20 +46,27 @@ hamburger,hamburgers
 lamb
 legume
 lentil,lentils
+lobster,lobsters
 lupins
 mesquite
+mussel,mussels
 ovis
 oyster,oysters
 pancetta
 pepperoni
 pork
+prosciutto
 rabbit
 salmon
 sausage
 shrimp
 soy
-steak
+steak,steaks
 swine
+swordfish
+tilapia
+tuna
 turkey,turkeys
 veal
 venison
+walnut,walnuts
