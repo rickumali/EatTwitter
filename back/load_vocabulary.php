@@ -45,6 +45,7 @@ foreach ($lines as $line) {
         // way, grab the ID.
         $row = mysqli_fetch_assoc($result);
         $id = $row['food_tag_id'];
+        $oDB->update('food_tags',$field_values,'food_tag_id=' . $id);
       } else if ($num_rows == 0) {			
         $oDB->insert('food_tags',$field_values);
         $id = $oDB->dbh->insert_id;
