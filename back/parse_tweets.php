@@ -25,6 +25,7 @@ while (true) {
   $result = $oDB->select($query);
   $total = mysqli_num_rows($result);
   $count = 0;
+  error_log("parse_tweets.php: " . date("F j, Y g:i A") . "\n");
   while($row = mysqli_fetch_assoc($result)) {
     $count++;		
     $cache_id = $row['cache_id'];
