@@ -11,8 +11,9 @@
 require_once('./140dev_config.php');
 
 // Extend the Phirehose class to capture tweets in the json_cache MySQL table
-require_once(CODE_DIR . 'libraries/phirehose/phirehose.php');
-class Consumer extends Phirehose
+require_once(CODE_DIR . 'libraries/phirehose/Phirehose.php');
+require_once(CODE_DIR . 'libraries/phirehose/OauthPhirehose.php');
+class Consumer extends OauthPhirehose
 {
   // A database connection is established at launch and kept open permanently
   public $oDB;
@@ -58,8 +59,7 @@ class Consumer extends Phirehose
 }
 
 // Open a persistent connection to the Twitter streaming API
-// Basic authentication (screen_name, password) is still used by this API
-$stream = new Consumer(STREAM_ACCOUNT, STREAM_PASSWORD, Phirehose::METHOD_FILTER);
+$stream = new Consumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
 
 // Establish a MySQL database connection
 $stream->db_connect();

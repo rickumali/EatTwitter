@@ -19,10 +19,12 @@ define('CODE_DIR', '/var/www/html/140dev/');
 // External URL for Javascript code in browsers to call the framework with Ajax
 define('AJAX_URL', 'http://yoursite.com/140dev/');
 
-// Basic authorization settings for connecting to the Twitter streaming API
-// Fill in the values for a valid Twitter account
-define('STREAM_ACCOUNT', '*****');
-define('STREAM_PASSWORD', '*****');
+// OAuth settings for connecting to the Twitter streaming API
+// Fill in the values for a valid Twitter app
+define('TWITTER_CONSUMER_KEY.,'******');
+define('TWITTER_CONSUMER_SECRET.,'******');
+define('OAUTH_TOKEN.,'******');
+define('OAUTH_SECRET.,'******');
 
 // MySQL time zone setting to normalize dates
 define('TIME_ZONE','America/New_York');
