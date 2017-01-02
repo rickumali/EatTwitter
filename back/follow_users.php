@@ -13,6 +13,24 @@ require_once('./140dev_config.php');
 require_once(CODE_DIR . 'libraries/twitteroauth/autoload.php');
 require_once('./db_lib.php');
 
+$yesterday = null;
+$day_after_yesterday = null;
+if (isset($argv[1])) {
+  $yesterday = new DateTime($argv[1]);
+  $day_after_yesterday = new DateTime($yesterday->format('m/d/Y'));
+  $day_after_yesterday->add(new DateInterval('P1D'));
+  var_dump($yesterday);
+  var_dump($day_after_yesterday);
+} else {
+  echo "calculate yesterday\n";
+  $yesterday = new DateTime();
+  $yesterday->sub(new DateInterval('P1D'));
+  $day_after_yesterday = new DateTime($yesterday->format('m/d/Y'));
+  $day_after_yesterday->add(new DateInterval('P1D'));
+  var_dump($yesterday);
+  var_dump($day_after_yesterday);
+}
+
 $oDB = new db;
 
 $query = <<<SQL
@@ -29,9 +47,13 @@ join
 on
   t.user_id = u.user_id
 where
-  t.created_at >= '2016-12-28 00:00:00'
-  and t.created_at < '2016-12-29 00:00:00'
+  t.created_at >= '{$yesterday->format('Y-m-d 00:00:00')}'
+  and t.created_at < '{$day_after_yesterday->format('Y-m-d 00:00:00')}'
 SQL;
+
+print $query;
+
+exit(0);
 
   $result = $oDB->select($query);
   $total = mysqli_num_rows($result);
