@@ -19,16 +19,12 @@ if (isset($argv[1])) {
   $yesterday = new DateTime($argv[1]);
   $day_after_yesterday = new DateTime($yesterday->format('m/d/Y'));
   $day_after_yesterday->add(new DateInterval('P1D'));
-  var_dump($yesterday);
-  var_dump($day_after_yesterday);
 } else {
   echo "calculate yesterday\n";
   $yesterday = new DateTime();
   $yesterday->sub(new DateInterval('P1D'));
   $day_after_yesterday = new DateTime($yesterday->format('m/d/Y'));
   $day_after_yesterday->add(new DateInterval('P1D'));
-  var_dump($yesterday);
-  var_dump($day_after_yesterday);
 }
 
 $oDB = new db;
