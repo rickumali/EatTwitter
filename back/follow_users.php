@@ -30,8 +30,8 @@ if (isset($argv[1])) {
 $oDB = new db;
 
 $query = <<<SQL
-select 
-  distinct t.tweet_id, t.user_id, u.screen_name
+select
+  distinct t.user_id, u.screen_name
 from 
   tweets t
 join
@@ -46,10 +46,6 @@ where
   t.created_at >= '{$yesterday->format('Y-m-d 00:00:00')}'
   and t.created_at < '{$day_after_yesterday->format('Y-m-d 00:00:00')}'
 SQL;
-
-print $query;
-
-exit(0);
 
   $result = $oDB->select($query);
   $total = mysqli_num_rows($result);
