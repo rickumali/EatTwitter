@@ -31,7 +31,9 @@ $oDB = new db;
 
 $query = <<<SQL
 select
-  distinct t.user_id, u.screen_name
+  distinct t.user_id, u.screen_name,
+  u.followers_count, u.friends_count,
+  u.statuses_count
 from 
   tweets t
 join
@@ -53,5 +55,5 @@ SQL;
   $count = 0;
   while($row = mysqli_fetch_assoc($result)) {
     $count++;
-    print "{$row['user_id']} - {$row['screen_name']}\n";
+    print "{$row['user_id']} - {$row['screen_name']} - {$row['followers_count']} - {$row['friends_count']} - {$row['statuses_count']}\n";
   }
