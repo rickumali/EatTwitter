@@ -13,6 +13,8 @@ require_once('./140dev_config.php');
 require_once(CODE_DIR . 'libraries/twitteroauth/autoload.php');
 require_once('./db_lib.php');
 
+use Abraham\TwitterOAuth\TwitterOAuth;
+
 $yesterday = null;
 $day_after_yesterday = null;
 if (isset($argv[1])) {
@@ -50,10 +52,16 @@ order by u.followers_count desc
 limit 20
 SQL;
 
+$connection = new TwitterOAuth(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_SECRET);
+
   $result = $oDB->select($query);
   $total = mysqli_num_rows($result);
   $count = 0;
   while($row = mysqli_fetch_assoc($result)) {
     $count++;
     print "{$row['user_id']} - {$row['screen_name']} - {$row['followers_count']}\n";
+    $status = $connection->post("friendships/create", ["screen_name" => $row['screen_name']]);
+    if ($connection->getLastHttpCode() != 200) {
+      print "Problemo: {$row['screen_name']}: {$connection->getLastHttpCode()}\n";
+    }
   }
