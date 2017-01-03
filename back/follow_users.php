@@ -20,7 +20,6 @@ if (isset($argv[1])) {
   $day_after_yesterday = new DateTime($yesterday->format('m/d/Y'));
   $day_after_yesterday->add(new DateInterval('P1D'));
 } else {
-  echo "calculate yesterday\n";
   $yesterday = new DateTime();
   $yesterday->sub(new DateInterval('P1D'));
   $day_after_yesterday = new DateTime($yesterday->format('m/d/Y'));
@@ -32,8 +31,7 @@ $oDB = new db;
 $query = <<<SQL
 select
   distinct t.user_id, u.screen_name,
-  u.followers_count, u.friends_count,
-  u.statuses_count
+  u.followers_count
 from 
   tweets t
 join
@@ -47,13 +45,15 @@ on
 where
   t.created_at >= '{$yesterday->format('Y-m-d 00:00:00')}'
   and t.created_at < '{$day_after_yesterday->format('Y-m-d 00:00:00')}'
+  and u.followers_count >= 1000
+order by u.followers_count desc
+limit 20
 SQL;
 
   $result = $oDB->select($query);
   $total = mysqli_num_rows($result);
-  print "Total: $total";
   $count = 0;
   while($row = mysqli_fetch_assoc($result)) {
     $count++;
-    print "{$row['user_id']} - {$row['screen_name']} - {$row['followers_count']} - {$row['friends_count']} - {$row['statuses_count']}\n";
+    print "{$row['user_id']} - {$row['screen_name']} - {$row['followers_count']}\n";
   }
