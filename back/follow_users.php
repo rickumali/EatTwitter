@@ -59,9 +59,9 @@ $connection = new TwitterOAuth(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, OA
   $count = 0;
   while($row = mysqli_fetch_assoc($result)) {
     $count++;
-    print "{$row['user_id']} - {$row['screen_name']} - {$row['followers_count']}\n";
-    $status = $connection->post("friendships/create", ["screen_name" => $row['screen_name']]);
-    if ($connection->getLastHttpCode() != 200) {
-      print "Problemo: {$row['screen_name']}: {$connection->getLastHttpCode()}\n";
+    error_log("follow_users.php: {$row['user_id']} - {$row['screen_name']} - {$row['followers_count']}\n");
+    $status = $connection->post("friendships/create", array("screen_name" => $row['screen_name']));
+    if ($connection->lastHttpCode() != 200) {
+      error_log("follow_users.php: Problemo: {$row['screen_name']}: {$connection->lastHttpCode()}\n");
     }
   }
