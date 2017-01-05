@@ -10,7 +10,7 @@
 */
 require_once('./140dev_config.php');
 
-require_once(CODE_DIR . 'libraries/twitteroauth/autoload.php');
+require_once(CODE_DIR . 'libraries/twitteroauth/autoloader.php');
 require_once('./db_lib.php');
 
 use Abraham\TwitterOAuth\TwitterOAuth;
